@@ -1,0 +1,28 @@
+<html>
+<body>
+<p>Hello {{ owner.firstname }}</p>
+<p>ZenScanner justs finised to scan the following repository : <a href="{{ repository.url }}">{{ repository.name }}</a>.</p>
+<p>The scan founds {{ vulnerabilities_count }} ({{ new_vulnerabilities }} new) vulnerabilities.</p>
+{% if email_link %}
+<p>You can review full report at <a href="{{ email_link }}">{{ email_link }}</a></p>
+{% endif %}
+{% if vulnerabilities_count > 0 %}
+<h3>Vulnerabilities</h3>
+
+<table border="1">
+<tr>
+  <th>SEVERITY</th>
+  <th>TOOL</th>
+  <th>DETAILS</th>
+</tr>
+{% for vuln in vulnerabilities %}
+<tr>
+  <td>{{ vuln.level }}</td>
+  <td>{{ vuln.tool }}</td>
+  <td>{% if vuln.is_new %}NEW : {% endif %}{{ vuln.details }}</td>
+</tr>
+{% endfor %}
+</table>
+{% endif %}
+<p>Regards,</p>
+</body>

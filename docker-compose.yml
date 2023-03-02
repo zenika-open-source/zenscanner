@@ -1,0 +1,42 @@
+version: "3.3"
+services:
+  api:
+    build: .
+    command: "/zenscanner/start.sh"
+    ports:
+      - 8080:8080
+    environment:
+      - CELERY_BROKER_URL=redis://:REDIS_CHANGEME@redis:6379
+      - CELERY_RESULT_BACKEND=redis://:REDIS_CHANGEME@redis:6379
+      - DATABASE_URL=postgres://postgres:POSTGRES_CHANGEME@postgres/postgres
+      - EMAIL_BACKEND=django.core.mail.backends.smtp.EmailBackend
+      - EMAIL_HOST=mail
+      - EMAIL_PORT=1025
+      - DEBUG=0
+    depends_on:
+      - postgres
+  worker:
+    build: .
+    user: "0"
+    command: "/zenscanner/start-worker.sh"
+    environment:
+      - CELERY_BROKER_URL=redis://:REDIS_CHANGEME@redis:6379
+      - CELERY_RESULT_BACKEND=redis://:REDIS_CHANGEME@redis:6379
+      - API_URL=http://api:8080
+      - DOCKER_HOST=unix:///var/run/docker.sock
+      - DEBUG=0
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+  redis:
+    image: redis
+    command: redis-server --requirepass REDIS_CHANGEME
+  postgres:
+    image: "postgres"
+    environment:
+        POSTGRES_USER: "postgres"
+        POSTGRES_PASSWORD: "POSTGRES_CHANGEME"
+        PGDATA: "/data/postgres"
+    volumes:
+        - ./postgres:/data/postgres
+    restart: unless-stopped
+

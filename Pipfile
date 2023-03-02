@@ -1,0 +1,40 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+pylint = "2.11.1"
+pytest = "6.2.5"
+pytest-django = "4.4.0"
+coverage = "5.5"
+flake8 = "3.9.2"
+
+[packages]
+django = "4.1.4"
+requests = "2.28.1"
+celery = "5.2.7"
+redis = "4.3.4"
+python-magic = "0.4.25"
+minio = "7.1.10"
+docker = "5.0.3"
+sentry-sdk = "1.5.4"
+python-slugify = "5.0.2"
+psycopg2 = "3.0.15"
+dj-database-url = "0.5.0"
+django-cors-headers = "3.11.0"
+pycryptodome = "3.15.0"
+importlib-metadata = "4.11.0"
+django-ninja = "*"
+gunicorn = "*"
+uvicorn = "*"
+pyjwt = "*"
+
+[requires]
+python_version = "3.11"
+
+[scripts]
+test = "pytest"
+test-no-docker = "pytest -m 'not docker'"
+coverage-html = "pipenv run coverage html --omit=\"*/.local/*\",manage.py,zenscanner/settings.py --skip-covered"
+cover = "pipenv run coverage run -m pytest"

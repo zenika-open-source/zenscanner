@@ -1,0 +1,19 @@
+Hello {{ owner.firstname }},
+
+ZenScanner justs finised to scan the following repository : {{ repository.name }}
+
+The scan founds {{ vulnerabilities_count }} ({{ new_vulnerabilities }} new) vulnerabilities.
+
+{% if email_link %}
+You can review full report at {{ email_link }}
+
+{% endif %}
+{% if vulnerabilities_count > 0 %}
+Vulnerabilities:
+
+{% for vuln in vulnerabilities %}
+{{ vuln.level }} | {{ vuln.tool }} | {% if vuln.is_new %}NEW : {% endif %}{{ vuln.details }}
+{% endfor %}
+{% endif %}
+
+Regards,

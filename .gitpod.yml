@@ -1,0 +1,7 @@
+image: python:3.11
+tasks:
+  - before: printf 'export PATH="%s:$PATH"\n' "/home/gitpod/.local/bin" >> $HOME/.bashrc && exit
+  - command: |
+      source $HOME/.bashrc
+      pip install pipenv
+      PIPENV_VENV_IN_PROJECT=1 pipenv install --dev

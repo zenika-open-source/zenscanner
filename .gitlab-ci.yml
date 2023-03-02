@@ -1,0 +1,64 @@
+services:
+  - docker:dind
+
+variables:
+  DOCKER_HOST: tcp://docker:2375
+  DOCKER_TLS_CERTDIR: ""
+
+stages:
+  - Linting
+  - Testing
+  - Build
+
+Flake:
+  stage: Linting
+  image: python:3.11
+  only:
+    - merge_requests
+  script:
+    - export PIP_CACHE_DIR=$PWD/.local/pipcache
+    - export WORKON_HOME=$PWD/.local/venvs
+    - pip install pipenv
+    - pipenv install --dev
+    - cd zenscanner
+    - pipenv run flake8
+
+RunCoverage:
+  stage: Testing
+  image: python:3.11
+  only:
+    - merge_requests
+  script:
+    - export PIP_CACHE_DIR=$PWD/.local/pipcache
+    - export WORKON_HOME=$PWD/.local/venvs
+    - pip install pipenv
+    - pipenv install --dev
+    - cd zenscanner
+    - pipenv run coverage run
+    - pipenv run coverage report
+
+BuildDocker:
+  stage: Build
+  image: docker
+  script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - docker build -t $CI_REGISTRY_IMAGE:dev .
+    - docker push $CI_REGISTRY_IMAGE:dev
+  only:
+    refs:
+      - develop
+
+BuildDockerForTags:
+  stage: Build
+  image: docker
+  script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - docker build -t $CI_REGISTRY_IMAGE:$CI_COMMIT_TAG .
+    - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_TAG
+  only:
+    - tags
+
+cache:
+  key: pipenv
+  paths:
+    - .local

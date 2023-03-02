@@ -1,0 +1,7 @@
+zenscanner/.coverage
+zenscanner/db.sqlite3
+**/htmlcov
+**.pyc
+zenscanner/coverage.xml
+.idea/
+zenscanner/.tox/

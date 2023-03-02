@@ -1,0 +1,166 @@
+{
+    "version": "2.1.0",
+    "runs": [{
+        "tool": {
+            "driver": {
+                "name": "Example Tool"
+            }
+        },
+        "results": [{
+            "ruleId": "Example Rule",
+            "level": "error",
+            "locations": [{
+                "physicalLocation": {
+                    "artifactLocation": {
+                        "uri": "example.txt"
+                    }
+                }
+            }],
+            "message": {
+                "text": "Welcome to the online SARIF Viewer demo. Drag and drop a SARIF file here to view."
+            },
+            "properties": {
+                "commit": "ec67aac0a8ca6b74a9f7473503c7fd19e7c0102d",
+                "offender": "EXAMPLEOFFENDER",
+                "date": "2020-05-21T19:19:07+01:00",
+                "author": "Zensec",
+                "email": "zensec@zenika.com",
+                "commitMessage": "Dummy Commit Message",
+                "repo": "src"
+               },
+            "baselineState": "new"
+        },
+        {
+            "ruleId": "Example Rule",
+            "level": "WARNING",
+            "locations": [{
+                "physicalLocation": {
+                    "artifactLocation": {
+                        "uri": "example.txt"
+                    }
+                }
+            }],
+            "message": {
+                "text": "Welcome to the online SARIF Viewer demo. Drag and drop a SARIF file here to view."
+            },
+            "properties": {
+                "commit": "ec67aac0a8ca6b74a9f7473503c7fd19e7c0102d",
+                "offender": "EXAMPLEOFFENDER",
+                "date": "2020-05-21T19:19:07+01:00",
+                "author": "Zensec",
+                "email": "zensec@zenika.com",
+                "commitMessage": "Dummy Commit Message",
+                "repo": "src"
+               },
+            "baselineState": "new"
+        }
+        ,
+        {
+            "ruleId": "Example Rule",
+            "level": "warning",
+            "locations": [{
+                "physicalLocation": {
+                    "artifactLocation": {
+                        "uri": "example.txt"
+                    }
+                }
+            }],
+            "message": {
+                "text": "Welcome to the online SARIF Viewer demo. Drag and drop a SARIF file here to view."
+            },
+            "properties": {
+                "commit": "ec67aac0a8ca6b74a9f7473503c7fd19e7c0102d",
+                "offender": "EXAMPLEOFFENDER",
+                "date": "2020-05-21T19:19:07+01:00",
+                "author": "Zensec",
+                "email": "zensec@zenika.com",
+                "commitMessage": "Dummy Commit Message",
+                "repo": "src"
+               },
+            "baselineState": "new"
+        }
+    ]
+    },
+    {
+        "tool": {
+            "driver": {
+                "name": "Example Tool 2"
+            }
+        },
+        "results": [{
+            "ruleId": "Example Rule",
+            "level": "info",
+            "locations": [{
+                "physicalLocation": {
+                    "artifactLocation": {
+                        "uri": "example.txt"
+                    }
+                }
+            }],
+            "message": {
+                "text": "Welcome to the online SARIF Viewer demo. Drag and drop a SARIF file here to view."
+            },
+            "properties": {
+                "commit": "ec67aac0a8ca6b74a9f7473503c7fd19e7c0102d",
+                "offender": "EXAMPLEOFFENDER",
+                "date": "2020-05-21T19:19:07+01:00",
+                "author": "Zensec",
+                "email": "zensec@zenika.com",
+                "commitMessage": "Dummy Commit Message",
+                "repo": "src"
+               },
+            "baselineState": "new"
+        },
+        {
+            "ruleId": "Example Rule",
+            "level": "none",
+            "locations": [{
+                "physicalLocation": {
+                    "artifactLocation": {
+                        "uri": "example.txt"
+                    }
+                }
+            }],
+            "message": {
+                "text": "Welcome to the online SARIF Viewer demo. Drag and drop a SARIF file here to view."
+            },
+            "properties": {
+                "commit": "ec67aac0a8ca6b74a9f7473503c7fd19e7c0102d",
+                "offender": "EXAMPLEOFFENDER",
+                "date": "2020-05-21T19:19:07+01:00",
+                "author": "Zensec",
+                "email": "zensec@zenika.com",
+                "commitMessage": "Dummy Commit Message",
+                "repo": "src"
+               },
+            "baselineState": "new"
+        }
+        ,
+        {
+            "ruleId": "Example Rule",
+            "level": "warning",
+            "locations": [{
+                "physicalLocation": {
+                    "artifactLocation": {
+                        "uri": "example.txt"
+                    }
+                }
+            }],
+            "message": {
+                "text": "Welcome to the online SARIF Viewer demo. Drag and drop a SARIF file here to view."
+            },
+            "properties": {
+                "commit": "ec67aac0a8ca6b74a9f7473503c7fd19e7c0102d",
+                "offender": "EXAMPLEOFFENDER",
+                "date": "2020-05-21T19:19:07+01:00",
+                "author": "Zensec",
+                "email": "zensec@zenika.com",
+                "commitMessage": "Dummy Commit Message",
+                "repo": "src"
+               },
+            "baselineState": "new"
+        }
+    ]
+    }
+]
+}
