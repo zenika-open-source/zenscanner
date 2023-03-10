@@ -16,13 +16,12 @@ class GithubCreds():
 
     def validate(self):
         f = GithubFormater()
-        if len(self.token) == 40:
-            response = get(
-                url=f.fmt_validate_url(),
-                headers=f.fmt_auth_header(self.token)
-            )
-            if 'id' in response.json() and response.status_code == 200:
-                return True
+        response = get(
+            url=f.fmt_validate_url(),
+            headers=f.fmt_auth_header(self.token)
+        )
+        if 'id' in response.json() and response.status_code == 200:
+            return True
         return False
 
     def list(self, **kwargs):

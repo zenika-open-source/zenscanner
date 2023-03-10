@@ -26,7 +26,7 @@ class GithubPullerTestCase(TestCase):
 
         puller = Github(
             credential={
-                "value": "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",
+                "value": "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",
                 "type": "Github"
             },
             worker_token="github-puller-wk",
@@ -43,7 +43,7 @@ class GithubPullerTestCase(TestCase):
 
         puller = Github(
             credential={
-                "value": "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",
+                "value": "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",
                 "type": "Github"
             },
             worker_token="github-puller-wk",

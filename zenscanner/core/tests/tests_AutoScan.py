@@ -28,7 +28,7 @@ class AutoScanCase(TaskTestCase):
     @mock.patch('core.utils.tasks.requests.delete', side_effect=rmp.mock_delete)
     def test_scan_can_be_automatically_start(self, m, m2, m3, m4):
         user = create_user("user", "user", "user")
-        cred = Credential(label="Github", type="Github", raw_value="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", owner=user)
+        cred = Credential(label="Github", type="Github", raw_value="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", owner=user)
         cred.save()
         repo = Repository(name="Test Repo", url='https://github.com/zenscanner/test-private-repo', credential=cred, owner=user)
         repo.save()

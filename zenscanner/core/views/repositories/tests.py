@@ -14,7 +14,7 @@ class ReposViewTestCase(TestCase):
         token = asserts(self, jpost(client, "/api/credentials", {
             "label": "Github",
             "type": "Github",
-            "value": "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"
+            "value": "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"
         }), status=200).json()['uuid']
 
         repo = asserts(self, jpost(client, "/api/repositories", {
@@ -88,7 +88,7 @@ class ReposViewTestCase(TestCase):
         cred = asserts(self, jpost(client, "/api/credentials", {
             "label": "Github",
             "type": "Github",
-            "value": "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"
+            "value": "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"
         }), status=200).json()
 
         repo_token = asserts(self, jpost(client, "/api/repositories", {
@@ -110,7 +110,7 @@ class ReposViewTestCase(TestCase):
         cred2 = asserts(self, jpost(client, "/api/credentials", {
             "label": "Github",
             "type": "Github",
-            "value": "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"
+            "value": "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"
         }), status=200).json()
         new_data['credential'] = cred2['uuid']
         asserts(self, jput(client, "/api/repositories/" + repo_token, new_data), status=200, json_contains={

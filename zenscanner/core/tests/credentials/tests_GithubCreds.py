@@ -3,7 +3,7 @@ from core.models import Credential
 
 
 def get_cred():
-    return Credential(type="Github", raw_value="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").get_instance()
+    return Credential(type="Github", raw_value="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").get_instance()
 
 
 class CredentialsGithubTestCase(TestCase):

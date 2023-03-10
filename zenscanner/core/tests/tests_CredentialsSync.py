@@ -13,7 +13,7 @@ class CredentialsSyncCase(TaskTestCase):
     @tag('docker')
     def test_run_manual_scan_task_with_credentials(self):
         user = create_user("user", "user", "user")
-        cred = Credential(label="Github", type="Github", raw_value="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", owner=user)
+        cred = Credential(label="Github", type="Github", raw_value="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", owner=user)
         cred.save()
         self.assertEqual(0, Repository.objects.count())
         task = sync_repositories.delay()
@@ -24,7 +24,7 @@ class CredentialsSyncCase(TaskTestCase):
     @tag('docker')
     def test_run_manual_scan_task_with_credentials_and_disabled_sync(self):
         user = create_user("user", "user", "user")
-        cred = Credential(label="Github", type="Github", raw_value="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", owner=user, allow_sync=False)
+        cred = Credential(label="Github", type="Github", raw_value="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", owner=user, allow_sync=False)
         cred.save()
         self.assertEqual(0, Repository.objects.count())
         task = sync_repositories.delay()

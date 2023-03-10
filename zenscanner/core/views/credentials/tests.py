@@ -32,7 +32,7 @@ class CredentialsViewTestCase(TestCase):
         asserts(self, jpost(client, "/api/credentials", {
                 "label": "Github",
                 "type": "Generic",
-                "value": "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"
+                "value": "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"
                 }), status=200)
 
     def test_user_can_delete_valid_cred(self):
@@ -57,7 +57,7 @@ class CredentialsViewTestCase(TestCase):
         uuid2 = jpost(client, "/api/credentials", {
             "label": "Secret2",
             "type": "Github",
-            "value": "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"
+            "value": "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"
         }).json()['uuid']
 
         res = jget(client, "/api/credentials").json()
@@ -169,7 +169,7 @@ class CredentialsViewTestCase(TestCase):
         user = create_user("admin", "admin@test.com", "password")
         login(client, "admin", "password")
         asserts(self, jget(client, '/api/credentials/{}/repositories'.format(uuid4())), status=404)
-        cred = Credential(label="Github", type="Github", raw_value="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", owner=user)
+        cred = Credential(label="Github", type="Github", raw_value="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", owner=user)
         cred.save()
 
         result = asserts(self, jget(client, '/api/credentials/{}/repositories'.format(cred.uuid)), status=200).json()
