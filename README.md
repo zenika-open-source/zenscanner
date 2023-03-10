@@ -26,6 +26,12 @@ And you should be ready to go ! Go to http://127.0.0.1:8080 or use [ZenScannerCl
 
 By default, the registration is disabled. To enable it, add *REGISTRATION_ENABLED=1* in the API environment
 
+An account can be created without enabling registration:
+
+```
+docker-compose exec -ti api python manage.py createsuperuser
+```
+
 ### Limit email domains for registration
 
 The registration can be limited to email domains by define the *REGISTRATION_DOMAINS* environment
